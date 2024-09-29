@@ -1,0 +1,23 @@
+1. Initialize:
+    - Create a set `MST` to store the edges in the Minimum Spanning Tree (initially empty).
+    - Let `key[]` be an array where `key[v]` represents the minimum weight edge connecting vertex `v` to the MST.
+    - Let `parent[]` be an array where `parent[v]` stores the parent vertex of `v` in the MST.
+    - Let `visited[]` be a boolean array to keep track of vertices included in the MST.
+    - Initialize all `key[]` values to infinity (`∞`), except for the starting vertex (let's call it `src`), which should be 0.
+    - Initialize all `parent[]` values to `-1` (or some sentinel value).
+    - Initialize `visited[]` to `false` for all vertices.
+
+2. Select the starting vertex (e.g., `src`), set `key[src] = 0`.
+
+3. While there are vertices not included in the MST:
+    a. Pick the vertex `u` with the minimum `key[]` value that has not been included in the MST.
+    b. Add `u` to the MST (mark `visited[u] = true`).
+    c. For each adjacent vertex `v` of `u`:
+        - If `v` is not yet in the MST and the weight of edge `(u, v)` is less than `key[v]`, update:
+            - `key[v] = weight(u, v)`
+            - `parent[v] = u`
+            
+4. Once all vertices are included, the `parent[]` array represents the MST.
+
+5. Output the edges and weights of the MST using the `parent[]` array.
+
